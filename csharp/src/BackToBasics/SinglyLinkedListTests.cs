@@ -39,5 +39,15 @@ namespace BackToBasics
 			Assert.That(list.Find(42), Is.EqualTo(expectedNode));
 		}
 
+		[Test]
+		public void Does_not_find_value_which_is_not_in_the_list()
+		{
+			var expectedNode = new ListNode<int>(42);
+			var head = new ListNode<int>(12) { Next = new ListNode<int>(77) { Next = expectedNode } };
+			var list = new SinglyLinkedList<int>(head);
+
+			Assert.Null(list.Find(99));
+		} 
+
 	}
 }
