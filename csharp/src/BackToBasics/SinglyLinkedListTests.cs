@@ -148,5 +148,66 @@ namespace BackToBasics
 			Assert.That(list.Head, Is.EqualTo(node));
 			Assert.That(list.Head.Next, Is.EqualTo(node.Next));
 		}
+
+		[Test]
+		public void Remove_single_node_with_matching_value_from_single_item_list()
+		{
+			var list = new SinglyLinkedList<int>(new ListNode<int>(12));
+
+			list.Remove(new ListNode<int>(12));
+
+			Assert.That(list.Length, Is.EqualTo(0));
+			Assert.Null(list.Head);
+		}
+
+		[Test]
+		public void Remove_single_node_with_matching_value_from_end_of_multiple_items_list()
+		{
+			var nodeToRemove = new ListNode<int>(42);
+			var head = new ListNode<int>(12) { Next = new ListNode<int>(77) {Next = nodeToRemove} };
+			var list = new SinglyLinkedList<int>(head);
+
+			list.Remove(nodeToRemove);
+
+			Assert.That(list.Length, Is.EqualTo(2));
+			Assert.Null(list.Find(nodeToRemove.Value));
+		}
+
+		[Test]
+		public void Remove_single_node_with_matching_value_from_middle_of_multiple_items_list()
+		{
+			var nodeToRemove = new ListNode<int>(42) { Next = new ListNode<int>(77) };
+			var head = new ListNode<int>(12) { Next = nodeToRemove };
+			var list = new SinglyLinkedList<int>(head);
+
+			list.Remove(nodeToRemove);
+
+			Assert.That(list.Length, Is.EqualTo(2));
+			Assert.Null(list.Find(nodeToRemove.Value));
+		}
+
+		[Test]
+		public void Remove_single_node_with_matching_value_from_head_of_multiple_items_list()
+		{
+			var head = new ListNode<int>(12) { Next = new ListNode<int>(42) { Next = new ListNode<int>(77) } };
+			var list = new SinglyLinkedList<int>(head);
+
+			list.Remove(head);
+
+			Assert.That(list.Length, Is.EqualTo(2));
+			Assert.Null(list.Find(head.Value));
+		}
+
+		[Test]
+		public void Does_not_remove_node_when_matching_value_not_in_list()
+		{
+			var head = new ListNode<int>(12) { Next = new ListNode<int>(42) { Next = new ListNode<int>(77) } };
+			var list = new SinglyLinkedList<int>(head);
+
+			list.Remove(new ListNode<int>(99));
+
+			Assert.That(list.Length, Is.EqualTo(3));
+			Assert.Null(list.Find(99));
+		}
 	}
 }

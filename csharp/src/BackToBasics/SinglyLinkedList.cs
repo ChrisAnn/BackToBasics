@@ -68,5 +68,24 @@ namespace BackToBasics
 
 			Head = nodeToPrepend;
 		}
+
+		public void Remove(ListNode<T> nodeToRemove)
+		{
+			var node = Head;
+			var previousNode = Head;
+			while (node != null && !node.Value.Equals(nodeToRemove.Value))
+			{
+				previousNode = node;
+				node = node.Next;
+			}
+
+			if (node == null)
+				return;
+
+			if (node == Head && previousNode == Head)
+				Head = Head.Next;
+
+			previousNode.Next = node.Next;
+		}
 	}
 }
