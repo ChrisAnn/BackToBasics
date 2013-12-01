@@ -47,7 +47,43 @@ namespace BackToBasics
 			var list = new SinglyLinkedList<int>(head);
 
 			Assert.Null(list.Find(99));
-		} 
+		}
 
+		[Test]
+		public void Append_node_to_end_of_single_item_list()
+		{
+			var list = new SinglyLinkedList<int>(new ListNode<int>(12));
+
+			var node = new ListNode<int>(42);
+			list.Append(node);
+
+			Assert.That(list.Length, Is.EqualTo(2));
+			Assert.That(list.Head.Next, Is.EqualTo(node));
+		}
+
+		[Test]
+		public void Append_node_to_end_of_multiple_item_list()
+		{
+			var head = new ListNode<int>(12) { Next = new ListNode<int>(77) };
+			var list = new SinglyLinkedList<int>(head);
+
+			var node = new ListNode<int>(42);
+			list.Append(node);
+
+			Assert.That(list.Length, Is.EqualTo(3));
+			Assert.That(list.Head.Next.Next, Is.EqualTo(node));
+		}
+
+		[Test]
+		public void Append_node_to_empty_list()
+		{
+			var list = new SinglyLinkedList<int>(null);
+
+			var node = new ListNode<int>(42);
+			list.Append(node);
+
+			Assert.That(list.Length, Is.EqualTo(1));
+			Assert.That(list.Head, Is.EqualTo(node));
+		}
 	}
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace BackToBasics
 {
 	public class SinglyLinkedList<T>
@@ -36,6 +38,23 @@ namespace BackToBasics
 			}
 
 			return node;
+		}
+
+		public void Append(ListNode<T> nodeToAppend)
+		{
+			if (Head == null)
+			{
+				Head = nodeToAppend;
+				return;
+			}
+
+			var node = Head;
+			while(node.Next != null)
+			{
+				node = node.Next;
+			}
+
+			node.Next = nodeToAppend;
 		}
 
 	}
