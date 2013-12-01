@@ -19,5 +19,14 @@ namespace BackToBasics
 			var list = new SinglyLinkedList<int>(node);
 			Assert.That(list.Head, Is.EqualTo(node));
 		}
+
+		[Test]
+		public void Length_return_number_of_items_in_list()
+		{
+			var head = new ListNode<int>(12) { Next = new ListNode<int>(77) };
+			var list = new SinglyLinkedList<int>(head);
+
+			Assert.That(list.Length, Is.EqualTo(2));
+		}
 	}
 }

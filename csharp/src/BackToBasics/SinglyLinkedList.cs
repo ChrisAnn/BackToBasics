@@ -11,7 +11,20 @@ namespace BackToBasics
 
 		public int Length
 		{
-			get { return 0; }
+			get
+			{
+				if (Head == null)
+					return 0;
+
+				var count = 1;
+				var node = Head;
+				while (node.Next != null)
+				{
+					count++;
+					node = node.Next;
+				}
+				return count;
+			}
 		}
 	}
 }
