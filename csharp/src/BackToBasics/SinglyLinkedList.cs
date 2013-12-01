@@ -26,5 +26,17 @@ namespace BackToBasics
 				return count;
 			}
 		}
+
+		public ListNode<T> Find(T value)
+		{
+			var node = Head;
+			while (node != null && !node.Value.Equals(value))
+			{
+				node = node.Next;
+			}
+
+			return node;
+		}
+
 	}
 }

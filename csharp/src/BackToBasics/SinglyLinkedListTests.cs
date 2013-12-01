@@ -28,5 +28,16 @@ namespace BackToBasics
 
 			Assert.That(list.Length, Is.EqualTo(2));
 		}
+
+		[Test]
+		public void Finds_node_with_given_value()
+		{
+			var expectedNode = new ListNode<int>(42);
+			var head = new ListNode<int>(12) { Next = new ListNode<int>(77) {Next = expectedNode} };
+			var list = new SinglyLinkedList<int>(head);
+
+			Assert.That(list.Find(42), Is.EqualTo(expectedNode));
+		}
+
 	}
 }
