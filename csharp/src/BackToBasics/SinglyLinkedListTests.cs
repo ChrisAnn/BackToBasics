@@ -15,7 +15,7 @@ namespace BackToBasics
 		[Test]
 		public void Create_list_with_single_node()
 		{
-			var node = new Node<int>(12);
+			var node = new ListNode<int>(12);
 			var list = new SinglyLinkedList<int>(node);
 			Assert.That(list.Head, Is.EqualTo(node));
 		}

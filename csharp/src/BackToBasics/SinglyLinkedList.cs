@@ -2,11 +2,11 @@ namespace BackToBasics
 {
 	public class SinglyLinkedList<T>
 	{
-		public Node<T> Head { get; private set; }
+		public ListNode<T> Head { get; private set; }
 
-		public SinglyLinkedList(Node<T> node)
+		public SinglyLinkedList(ListNode<T> listNode)
 		{
-			Head = node;
+			Head = listNode;
 		}
 
 		public int Length

@@ -42,8 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Node.cs" />
-    <Compile Include="NodeTests.cs" />
+    <Compile Include="ListNode.cs" />
+    <Compile Include="ListNodeTests.cs" />
     <Compile Include="SinglyLinkedList.cs" />
     <Compile Include="SinglyLinkedListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
