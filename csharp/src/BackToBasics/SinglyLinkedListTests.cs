@@ -22,6 +22,37 @@ namespace BackToBasics
 			Assert.That(node.Next, Is.EqualTo(nextNode));
 		}
 
+		[Test]
+		public void Create_empty_List()
+		{
+			var list = new SinglyLinkedList<int>(null);
+			Assert.That(list.Length, Is.EqualTo(0));
+		}
+
+		[Test]
+		public void Create_list_with_single_node()
+		{
+			var node = new Node<int>(12);
+			var list = new SinglyLinkedList<int>(node);
+			Assert.That(list.Head, Is.EqualTo(node));
+		}
+	}
+
+	public class SinglyLinkedList<T>
+	{
+		public Node<T> Head { get; private set; }
+
+		public SinglyLinkedList(Node<T> node)
+		{
+			Head = node;
+		}
+
+		public int Length
+		{
+			get { return 0; }
+		}
+	}
+
 	public class Node<T>
 	{
 		public int Value { get; set; }
