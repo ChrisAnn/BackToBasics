@@ -57,5 +57,16 @@ namespace BackToBasics
 			node.Next = nodeToAppend;
 		}
 
+		public void Prepend(ListNode<T> nodeToPrepend)
+		{
+			var node = nodeToPrepend;
+			while(node.Next != null)
+			{
+				node = node.Next;
+			}
+			node.Next = Head;
+
+			Head = nodeToPrepend;
+		}
 	}
 }
