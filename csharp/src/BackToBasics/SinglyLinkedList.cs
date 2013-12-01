@@ -6,9 +6,13 @@ namespace BackToBasics
 	{
 		public ListNode<T> Head { get; private set; }
 
-		public SinglyLinkedList(ListNode<T> listNode)
+		public SinglyLinkedList() {}
+		
+		public SinglyLinkedList(T value) : this (new ListNode<T>(value)) { }
+
+		public SinglyLinkedList(ListNode<T> headNode)
 		{
-			Head = listNode;
+			Head = headNode;
 		}
 
 		public int Length
@@ -40,6 +44,11 @@ namespace BackToBasics
 			return node;
 		}
 
+		public void Append(T value)
+		{
+			Append(new ListNode<T>(value));
+		}
+
 		public void Append(ListNode<T> nodeToAppend)
 		{
 			if (Head == null)
@@ -57,6 +66,11 @@ namespace BackToBasics
 			node.Next = nodeToAppend;
 		}
 
+		public void Prepend(T value)
+		{
+			Prepend(new ListNode<T>(value));
+		}
+
 		public void Prepend(ListNode<T> nodeToPrepend)
 		{
 			var node = nodeToPrepend;
@@ -67,6 +81,16 @@ namespace BackToBasics
 			node.Next = Head;
 
 			Head = nodeToPrepend;
+		}
+
+		public void Remove(T value)
+		{
+			var nodeToRemove = Find(value);
+
+			if (nodeToRemove != null)
+			{
+				Remove(nodeToRemove);
+			}
 		}
 
 		public void Remove(ListNode<T> nodeToRemove)
