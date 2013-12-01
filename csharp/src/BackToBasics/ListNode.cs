@@ -2,11 +2,11 @@ namespace BackToBasics
 {
 	public class ListNode<T>
 	{
-		public int Value { get; set; }
+		public T Value { get; set; }
 
 		public ListNode<T> Next { get; set; }
 
-		public ListNode(int value)
+		public ListNode(T value)
 		{
 			Value = value;
 		}
